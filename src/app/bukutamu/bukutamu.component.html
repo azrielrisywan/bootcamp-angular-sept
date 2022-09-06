@@ -1,0 +1,59 @@
+<form [formGroup]="formKontak">
+    <div class="row mb-3">
+      <label for="inputEmail3" class="col-sm-2 col-form-label">Nama</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="nama">
+        <span class="pesan-error" *ngIf="!formKontak.get('nama')?.valid
+        && formKontak.get('nama')?.touched">
+        Wajib di isi
+        </span>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="inputPassword3" class="col-sm-2 col-form-label">Alamat</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="alamat">
+        <span class="pesan-error" *ngIf="!formKontak.get('alamat')?.valid
+        && formKontak.get('alamat')?.touched">
+        Wajib di isi
+        </span>
+      </div>
+    </div>
+    <div class="row mb-3">
+        <label for="inputPassword3" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" formControlName="email">
+          <span class="pesan-error" *ngIf="!formKontak.get('email')?.valid
+          && formKontak.get('email')?.touched">
+
+            <span class="pesan-error" *ngIf="formKontak.get('email')?.errors?.['email']">
+                harus format email
+            </span>
+
+            <span class="pesan-error" *ngIf="formKontak.get('email')?.errors?.['required']">
+                Email harus diisi
+            </span>
+
+          </span>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="inputPassword3" class="col-sm-2 col-form-label">No. Telp</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" formControlName="noTelp">
+          <span class="pesan-error" *ngIf="!formKontak.get('noTelp')?.valid
+          && formKontak.get('noTelp')?.touched">
+
+            <span class="pesan-error" *ngIf="formKontak.get('noTelp')?.errors?.['pattern']">
+                harus format no. telp
+            </span>
+
+            <span class="pesan-error" *ngIf="formKontak.get('noTelp')?.errors?.['required']">
+                No. Telp harus diisi
+            </span>
+
+          </span>
+        </div>
+      </div>
+    <button type="submit" (click)="simpan()" class="btn btn-primary">Sign in</button>
+  </form>
